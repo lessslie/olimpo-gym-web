@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
@@ -8,4 +10,21 @@
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Para que no quede pegado al header */
+}
+
+/* Scroll más suave en navegadores modernos */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Mejorar el scroll en dispositivos móviles */
+* {
+  -webkit-overflow-scrolling: touch;
 }

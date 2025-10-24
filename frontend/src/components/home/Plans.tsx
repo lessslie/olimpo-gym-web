@@ -42,7 +42,6 @@ export default function Plans() {
   return (
     <section id="planes" className="py-16 px-4 bg-gray-900">
       <div className="max-w-7xl mx-auto">
-        {/* Título de la sección */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Planes de <span className="text-red-600">Membresía</span>
@@ -52,71 +51,80 @@ export default function Plans() {
           </p>
         </div>
 
-        {/* Grid de planes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <div
               key={index}
               className={`
-                relative rounded-xl p-6
-                ${plan.highlighted 
-                  ? 'bg-red-600 text-white shadow-2xl' 
-                  : 'bg-gray-800 text-white hover:bg-gray-750 transition'
+                relative rounded-xl p-6 flex flex-col
+                ${
+                  plan.highlighted
+                    ? "bg-red-600 text-white shadow-2xl"
+                    : "bg-gray-800 text-white hover:bg-gray-750 transition"
                 }
               `}
             >
-              {/* Badge "Recomendado" */}
               {plan.highlighted && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-yellow-400 text-black rounded-full text-xs font-bold">
                   ⭐ Recomendado
                 </div>
               )}
 
-              {/* Nombre del plan */}
               <h3 className="text-xl font-bold mb-2 mt-2">{plan.name}</h3>
-              
-              {/* Descripción */}
-              <p className={`text-xs mb-4 ${plan.highlighted ? 'text-red-100' : 'text-gray-400'}`}>
+
+              <p
+                className={`text-xs mb-4 ${
+                  plan.highlighted ? "text-red-100" : "text-gray-400"
+                }`}
+              >
                 {plan.description}
               </p>
 
-              {/* Precio */}
               <div className="mb-6">
                 <span className="text-4xl font-bold">${plan.price}</span>
-                <span className={`text-base ${plan.highlighted ? 'text-red-100' : 'text-gray-400'}`}>
+                <span
+                  className={`text-base ${
+                    plan.highlighted ? "text-red-100" : "text-gray-400"
+                  }`}
+                >
                   /mes
                 </span>
               </div>
 
-              {/* Características */}
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3 mb-6 flex-grow">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <svg 
-                      className={`w-4 h-4 mt-0.5 shrink-0 ${plan.highlighted ? 'text-white' : 'text-red-600'}`} 
-                      fill="currentColor" 
+                    <svg
+                      className={`w-4 h-4 mt-0.5 shrink-0 ${
+                        plan.highlighted ? "text-white" : "text-red-600"
+                      }`}
+                      fill="currentColor"
                       viewBox="0 0 20 20"
                     >
-                      <path 
-                        fillRule="evenodd" 
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" 
-                        clipRule="evenodd" 
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
                       />
                     </svg>
-                    <span className={`text-sm leading-tight ${plan.highlighted ? 'text-red-50' : 'text-gray-300'}`}>
+                    <span
+                      className={`text-sm leading-tight ${
+                        plan.highlighted ? "text-red-50" : "text-gray-300"
+                      }`}
+                    >
                       {feature}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              {/* Botón */}
-              <button 
+              <button
                 className={`
                   w-full py-3 px-4 rounded-lg font-semibold text-sm transition transform hover:scale-105
-                  ${plan.highlighted 
-                    ? 'bg-white text-red-600 hover:bg-gray-100' 
-                    : 'bg-red-600 text-white hover:bg-red-700'
+                  ${
+                    plan.highlighted
+                      ? "bg-white text-red-600 hover:bg-gray-100"
+                      : "bg-red-600 text-white hover:bg-red-700"
                   }
                 `}
               >

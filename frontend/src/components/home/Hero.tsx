@@ -1,6 +1,20 @@
+"use client";
+
 export default function Hero() {
+    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+      e.preventDefault();
+      const element = document.getElementById(id);
+      if (element) {
+        const offsetTop = element.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    };
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-linear-to-br from-gray-900 via-gray-800 to-black text-white">
+    
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
       {/* Overlay decorativo */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
       
@@ -26,12 +40,19 @@ export default function Hero() {
 
         {/* Botones */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition transform hover:scale-105">
-            Inscribite Ahora
-          </button>
-          <button className="border-2 border-white hover:bg-white hover:text-black text-white px-8 py-4 rounded-lg font-bold text-lg transition">
-            Ver Planes
-          </button>
+        <a 
+  href="#contacto"
+  onClick={(e) => handleScroll(e, 'contacto')}
+  className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 inline-block text-center cursor-pointer"
+>
+  Inscribite Ahora
+</a>
+<a href="#planes"
+  onClick={(e) => handleScroll(e, 'planes')}
+  className="border-2 border-white hover:bg-white hover:text-black text-white px-8 py-4 rounded-lg font-bold text-lg transition inline-block text-center cursor-pointer"
+>
+  Ver Planes
+</a>
         </div>
 
         {/* Stats */}
@@ -59,4 +80,4 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+} 
