@@ -1,0 +1,16 @@
+# Configuración de line endings
+* text=auto eol=lf
+
+# Archivos específicos de Windows
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
